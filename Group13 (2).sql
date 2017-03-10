@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2017 at 03:04 PM
+-- Generation Time: Mar 10, 2017 at 02:00 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -227,8 +227,6 @@ CREATE TABLE `tasks` (
   `User_ID` bigint(20) NOT NULL,
   `Date` date NOT NULL,
   `Expiry_Date` date NOT NULL,
-  `Level` varchar(10) NOT NULL,
-  `Discipline` varchar(40) NOT NULL,
   `Task_Type` varchar(15) NOT NULL,
   `Title` tinytext NOT NULL COMMENT 'Max 255 Characters',
   `Req_Words` smallint(6) NOT NULL,
@@ -243,6 +241,16 @@ CREATE TABLE `tasks` (
   `Flagged` tinyint(1) NOT NULL,
   `Completed` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tasks`
+--
+
+INSERT INTO `tasks` (`Task_ID`, `User_ID`, `Date`, `Expiry_Date`, `Task_Type`, `Title`, `Req_Words`, `Word_Count`, `Total_Pages`, `File_Format`, `Due_Date`, `Due_Time`, `Description`, `Tag`, `Claimed_By`, `Flagged`, `Completed`) VALUES
+(1, 15183796, '2017-03-03', '0000-00-00', 'Assignment', 'Managing A Legal Accounts System', 2500, 2459, 6, 'doc', '2017-04-14', '17:30:00', 'Assignment looking at how legal accounts are managed - therefore contributing to calculating legal fees etc', 'Legal Fees\r\nManaging Accounts', 0, 0, 0),
+(2, 16115224, '2017-03-03', '0000-00-00', 'Assignment', 'Implications of using Epidural during labour', 2500, 2573, 6, 'pdf', '2017-04-07', '14:00:00', 'Assignment looking at the use of Epidural and the implications of using it during labour', 'Epidural\r\nLabour', 0, 0, 0),
+(3, 15181596, '2017-03-06', '0000-00-00', 'Research Paper', 'Comparison of different technologies used in the product design industry', 3000, 2792, 8, 'docx', '2017-04-21', '00:00:00', 'Research paper - researching the differences in technologies used in Ireland in different product design companies', 'Research paper\r\nTechnologies\r\nProduct design', 0, 0, 0),
+(4, 15171798, '2017-03-06', '0000-00-00', 'Assignment', 'Restrictions encountered by computer users for people with dyslexia ', 3000, 2965, 9, 'docx', '2017-04-07', '17:00:00', 'This assignment looks at what tools can be made available to assist those with dyslexia, when using a computer or surfing the internet', 'Computers\r\nDisabilities\r\n', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -407,9 +415,7 @@ ALTER TABLE `staff`
 ALTER TABLE `tasks`
   ADD PRIMARY KEY (`Task_ID`),
   ADD KEY `UserId` (`User_ID`),
-  ADD KEY `Level2` (`Level`),
   ADD KEY `TaskType` (`Task_Type`),
-  ADD KEY `Discipline3` (`Discipline`),
   ADD KEY `FFormat` (`File_Format`),
   ADD KEY `Claimed_By` (`Claimed_By`);
 
@@ -448,7 +454,7 @@ ALTER TABLE `flaggedtasks`
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `Task_ID` smallint(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `Task_ID` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- Constraints for dumped tables
 --
