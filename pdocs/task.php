@@ -45,7 +45,7 @@
 								<div class="spotlight">
 									<div class="content">
 										<header class="major">
-											<h2>UL Buy n' Sell</h2>
+											<h2>Planet Docs</h2>
 										</header>
 <?php
     if (isset($_GET["id"])) {
