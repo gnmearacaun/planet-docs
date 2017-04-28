@@ -45,9 +45,12 @@
 								<div class="spotlight">
 									<div class="content">
 										<header class="major">
-											<h2>Planet Docs</h2>
+											<h2>The Home of Planet Docs</h2>
+                                            <h4>This is an open source project that aims to produce an interactive web platform to facilitate the proofreading of student theses, dissertations, assignments, research papers alike among students and staff. The main idea behind the website is to allow students to publish their academic documents and get them proofread/reviewed by peers. </h4>
+                                            <h2>Explore these recently uploaded tasks:</h2>
 										</header>
 <?php
+              //listing tasks
     try {
         $dbh = new PDO("mysql:host=localhost;dbname=pdocs", "root", "");
 		
@@ -56,6 +59,7 @@
 		while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $id = $row['id'];
             $title = $row['title'];
+            //echo "<h2><h2>";
             printf("<h2> <a href=\"./task.php?id=%s\"> %s  </h2>", $id, $title);
         }
 

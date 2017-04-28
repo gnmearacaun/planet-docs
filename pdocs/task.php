@@ -46,8 +46,18 @@
 									<div class="content">
 										<header class="major">
 											<h2>Planet Docs</h2>
+
+
+
 										</header>
+
 <?php
+              
+        $claim = false;
+    if (isset($_GET["claim"])) {
+        $claim = true;
+    }
+        
     if (isset($_GET["id"])) {
         $id = $_GET["id"];
 	    try {
@@ -79,13 +89,19 @@
 							
 												if (isset($_SESSION["user_id"]) && $_SESSION["user_id"] != ''){ 
 												?>
-													<li><a href="#" class="button special small">Claim this task</a></li>
+                          <li><a href= "mytasks.php?<?php echo  "id={$id}&claim=true" ?>"  class="button special small">Claim this task</a></li>
 												<?php } ?>
 													<li><a href="./index.php" class="button small">Back</a></li>
 												</ul>
 
-
-
+<?php
+/*
+            echo "claim is".var_dump($claim); 
+            var_dump($_GET);
+            if ($claim == true) 
+              printf(" true");
+*/
+?>
 										
 										
 									</div>

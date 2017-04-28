@@ -88,12 +88,14 @@
 
 										<h2>Login</h2>
 										<form method="post">
+												<label>Email address:</label>
 												<input type="text" name="e" placeholder="email" required="required" maxlength="35"/>
 												<br>
+												<label>Password:</label>
 												<input type="password" name="p" placeholder="Password" required="required" maxlength="50"/>
 												<br>
 												<button type="submit" class="button special small">Login</button>
-												<label>Don't have account yet ! <a href="./register.php">Sign Up</a></label>
+												<label>Don't have account yet? <a href="./register.php"> Create an account </a></label>
 										</form>
 										
 									</div>
